@@ -13,6 +13,15 @@ const AI_MODELS: Record<
     order?: number;
   }
 > = {
+  "gpt-4o": {
+    encoding: "cl100k_base",
+    prices: {
+      prompt: 0.005,
+      completion: 0.015,
+    },
+    maxTokens: 128000,
+    llm: ["OpenAI Chat (Langchain)"],
+  },
   "gpt-4": {
     encoding: "cl100k_base",
     prices: {
