@@ -1,5 +1,11 @@
 import type { LLMProviderType } from "../types";
 
+export interface InputOptions {
+  images?: boolean;
+  audio?: boolean;
+  videos?: boolean;
+}
+
 const AI_MODELS: Record<
   string,
   {
@@ -10,6 +16,7 @@ const AI_MODELS: Record<
     };
     maxTokens: number;
     llm: LLMProviderType[];
+    inputOptions?: InputOptions
     order?: number;
   }
 > = {
@@ -21,6 +28,9 @@ const AI_MODELS: Record<
     },
     maxTokens: 128000,
     llm: ["OpenAI Chat (Langchain)"],
+    inputOptions: {
+      images: true,
+    },
   },
   "gpt-4": {
     encoding: "cl100k_base",
@@ -75,6 +85,9 @@ const AI_MODELS: Record<
     },
     maxTokens: 128000,
     llm: ["OpenAI Chat (Langchain)"],
+    inputOptions: {
+      images: true,
+    },
   },
   "gpt-4-0314": {
     encoding: "cl100k_base",
@@ -343,6 +356,9 @@ const AI_MODELS: Record<
     maxTokens: 2048,
     llm: ["Google GenerativeAI (Langchain)"],
     order: -1,
+    inputOptions: {
+      images: true,
+    },
   },
 
   "mistral-tiny": {
